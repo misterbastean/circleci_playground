@@ -1,0 +1,90 @@
+.hero {
+	background: black url(../../img/hero-1.jpg) center / cover;
+}
+
+#grid {
+	width: 768px;
+	display: grid;
+	grid-template-areas:
+		"a a a a"
+		"b c d e";
+	grid-row-gap: 1rem;
+}
+
+#a {
+	grid-area: a;
+}
+
+#b {
+	grid-area: b;
+}
+
+#c { 
+	grid-area: c;
+	border-left: 1px solid gray;
+}
+
+#d { 
+	grid-area: d;
+	border-left: 1px solid gray;
+}
+
+#e {
+	grid-area: e;
+}
+
+#footer {
+	padding: 2rem;
+}
+
+#teslalogo {
+	width: 6.25rem; height: 1rem;
+}
+
+#hamburger {
+	width: 1rem; height: 1rem;
+}
+
+#overlay {
+	top: 82px;
+}
+
+#footer {
+	padding: 2rem;
+}
+
+#tach {
+	width: 0.75em; height: 0.75em;
+}
+
+#reserveButton {
+	width: 100%;
+	border: 0.15em solid white;
+}
+
+@media(min-width:1025px) {
+	#hamburger {
+		display: none;
+	}
+}
+
+@media (max-width: 1024px) {
+	.hero { 
+		background: url(../../img/hero-2.jpg) center / cover; 
+	}
+}
+
+@media (max-width: 768px) {
+	.hero { 
+		background: url(../../img/hero-3.jpg) center / cover;
+	}
+}
+
+@media (max-width: 512px) {
+	#grid {
+		grid-template-areas:
+			"a a a"
+			"b c d"
+			"e e e";
+	}
+}

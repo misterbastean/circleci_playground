@@ -1,0 +1,339 @@
+h1,p {
+    color: #000
+}
+
+a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,caption,center,cite,code,dd,del,details,dfn,div,dl,dt,em,embed,fieldset,figcaption,figure,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,html,i,iframe,img,ins,kbd,label,legend,li,mark,menu,nav,object,ol,output,p,pre,q,ruby,s,samp,section,small,span,strike,strong,sub,summary,sup,table,tbody,td,tfoot,th,thead,time,tr,tt,u,ul,var,video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    vertical-align: baseline
+}
+
+body,html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    -webkit-tap-highlight-color: transparent!important;
+    padding: 0;
+    margin: 0;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none
+}
+
+a,a:after,a:visited {
+    background-color: transparent;
+    text-decoration: none;
+    color: #000
+}
+
+::-webkit-scrollbar {
+    width: 3px;
+    height: 3px;
+    position: absolute
+}
+
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 0 transparent;
+    -webkit-border-radius: 0;
+    border-radius: 0
+}
+
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 0;
+    border-radius: 0;
+    background: #000;
+    -webkit-box-shadow: inset 0 0 0 transparent
+}
+
+::-webkit-scrollbar-thumb:window-inactive {
+    background: #000
+}
+
+::selection {
+    background: #000;
+    color: #fff
+}
+
+::-moz-selection {
+    background: #000;
+    color: #fff
+}
+
+h1 {
+    font-size: 112px;
+    font-size: 7.9vw;
+    letter-spacing: -2px;
+    line-height: 110%;
+    /*font-family: Semibold;*/
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    position: fixed;
+    top: 34%;
+    left: 10%
+}
+
+.text {
+    position: relative;
+    display: block;
+    overflow: hidden
+}
+
+.animate {
+    -webkit-animation: animate 1.2s cubic-bezier(.2,.6,.2,1);
+    -moz-animation: animate 1.2s cubic-bezier(.2,.6,.2,1);
+    animation: animate 1.2s cubic-bezier(.2,.6,.2,1);
+    -webkit-animation-fill-mode: backwards;
+    -moz-animation-fill-mode: backwards;
+    animation-fill-mode: backwards
+}
+
+@-webkit-keyframes animate {
+    0% {
+        -webkit-transform: translateY(100%)
+    }
+
+    100% {
+        -webkit-transform: translateY(0)
+    }
+}
+
+@keyframes animate {
+    0% {
+        transform: translateY(100%)
+    }
+
+    100% {
+        transform: translateY(0)
+    }
+}
+
+.delay {
+    -webkit-animation-delay: .3s;
+    animation-delay: .3s
+}
+
+.about {
+    position: absolute;
+    top: 100vh;
+    left: 50%;
+    right: 10%;
+    padding-bottom: 34vh
+}
+
+h2 {
+    font-size: 32px;
+    font-size: 2.2vw;
+    line-height: 140%;
+    /*font-family: Medium;*/
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    margin-bottom: 10%
+}
+
+p {
+    font-size: 18px;
+    font-size: 1.25vw;
+    line-height: 180%;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+}
+
+b {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+}
+
+em {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-style: italic;
+}
+
+@media screen and (max-width: 667px) {
+    h1 {
+        font-size:68px;
+        font-size: 18vw
+    }
+
+    h2 {
+        font-size: 24px;
+        font-size: 6.4vw
+    }
+
+    p {
+        font-size: 18px;
+        font-size: 4.8vw
+    }
+
+    .about {
+        left: 0;
+        right: 0;
+        background: #fff;
+        padding: 10%;
+        width: 70%;
+    }
+    
+    #arrow-div {
+        display: none;
+    }
+}
+
+.ital {
+    font-style: italic;
+}
+
+
+#portfolio-link {
+    padding: 20px 30px;
+    background-color: hsl(217, 60%, 70%);
+    border-radius: 10px;
+    font-size: 2.8em;
+    color: white;
+    text-align: center;
+    font-family: Roboto, sans-serif;
+    font-weight: 500;
+    margin-top: 40px;
+}
+
+#blog-link {
+    padding: 20px 30px;
+    background-color: hsl(160, 60%, 50%);
+    border-radius: 10px;
+    font-size: 2.8em;
+    color: white;
+    text-align: center;
+    font-family: Roboto, sans-serif;
+    font-weight: 500;
+    margin-top: 40px;
+}
+
+/* ====================== */
+/* Scroll Arrow - ICONO */
+/* ====================== */
+
+
+[class*="icono"] {
+  position: absolute;
+  display: inline-block;
+  vertical-align: middle;
+  color: #666;
+  box-sizing: border-box;
+  left: 67%;
+  margin-left: -50px;
+}
+[class*="icono"]:after,
+[class*="icono"]:before {
+  content: "";
+  box-sizing: border-box;
+}
+
+[class*="icono-arrow4"] {
+  width: 0;
+  height: 0;
+  border: 7px solid transparent;
+  border-top: 7px solid;
+  border-right: 7px solid;
+  margin: 15px;
+}
+
+[class*="icono-arrow4"][class*="-down"] {
+  -webkit-transform: rotate(135deg);
+          transform: rotate(135deg);
+}
+
+#arrow-div i {
+    font-size: 21px;
+    animation: fadein 3s;
+    -moz-animation: fadein 3s; /* Firefox */
+    -webkit-animation: fadein 3s; /* Safari and Chrome */
+    -o-animation: fadein 3s; /* Opera */
+}
+@keyframes fadein {
+    0% {
+        opacity: 0;
+    }
+    90% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@-moz-keyframes fadein { /* Firefox */
+    0% {
+        opacity: 0;
+    }
+    90% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@-webkit-keyframes fadein { /* Safari and Chrome */
+    0% {
+        opacity: 0;
+    }
+    90% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@-o-keyframes fadein { /* Opera */
+    0% {
+        opacity: 0;
+    }
+    90% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+
+/* ====================== */
+/* Arrow Bounce Animation */
+/* ====================== */
+
+
+.bounce {
+ position: absolute;
+ bottom: 30px;
+ left: 50% ;
+ width: 60px;
+ height: 60px ;
+ margin-left:27em;
+ animation: bounce 2s infinite;
+ -webkit-animation: bounce 2s infinite;
+ -moz-animation: bounce 2s infinite;
+ -o-animation: bounce 2s infinite;
+}
+ 
+@-webkit-keyframes bounce {
+ 0%, 20%, 50%, 80%, 100% {-webkit-transform: translateY(0);} 
+ 40% {-webkit-transform: translateY(-30px);}
+ 60% {-webkit-transform: translateY(-15px);}
+}
+ 
+@-moz-keyframes bounce {
+ 0%, 20%, 50%, 80%, 100% {-moz-transform: translateY(0);}
+ 40% {-moz-transform: translateY(-30px);}
+ 60% {-moz-transform: translateY(-15px);}
+}
+ 
+@-o-keyframes bounce {
+ 0%, 20%, 50%, 80%, 100% {-o-transform: translateY(0);}
+ 40% {-o-transform: translateY(-30px);}
+ 60% {-o-transform: translateY(-15px);}
+}
+@keyframes bounce {
+ 0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+ 40% {transform: translateY(-30px);}
+ 60% {transform: translateY(-15px);}
+}

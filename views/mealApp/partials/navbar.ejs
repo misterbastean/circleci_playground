@@ -1,0 +1,71 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+  <a class="navbar-brand" href="/mealapp/recipes">Recipe App</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item dropdown active">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Categories
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="/mealapp/recipes/categories/chicken">Chicken</a>
+          <a class="dropdown-item" href="/mealapp/recipes/categories/beef">Beef</a>
+          <a class="dropdown-item" href="/mealapp/recipes/categories/pork">Pork</a>
+          <a class="dropdown-item" href="/mealapp/recipes/categories/fish">Fish</a>
+          <a class="dropdown-item" href="/mealapp/recipes/categories/other">Other</a>
+          <a class="dropdown-item" href="/mealapp/recipes/categories/none">No Protein</a>
+        </div>
+      </li>
+      <% if (currentUser) { %>
+        <li class="nav-item active">
+          <a class="nav-link" href="/mealapp/recipes/new">Add Recipe</a>
+        </li>
+      <% } %>
+      <li><a href='/mealapp/recipes/random' class='nav-link active mr-3'>Random</a></li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0 mx-3" action='/mealapp/recipes/search' method='GET'>
+      <input class="form-control mr-sm-2" type="text" placeholder="Ingredient, name, etc." id="term" name="term">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+    <ul class="nav navbar-nav">
+      <li><a href='/mealapp/cart' class='nav-link active mr-3'>My Cart</a></li>
+      <% if (!currentUser) { %> <!-- Update when authentication is added -->
+        <li><a href="/mealapp/login" class="nav-link active">Login</a></li>
+      <% } else { %>
+        <li><span class='navbar-text'>Signed In As: <%= currentUser.username %></span></li> <!-- Update when authentication is added -->
+        <li><a href="/mealapp/logout" class="nav-link active">Logout</a></li>
+      <% } %>
+      <li class="nav-item">
+
+      </li>
+    </ul>
+  </div>
+</nav>
+<div class="container mt-3">
+  <% if (error && error.length > 0) { %>
+    <div class="wrapper">
+      <div class="alert alert-danger"><%= error %></div>
+    </div>
+  <% } %><% if (success && success.length > 0) { %> <!-- Update when flash is added -->
+    <div class="wrapper">
+      <div class="alert alert-success"><%= success %></div>
+    </div>
+  <% } %>
+</div>
+<div class="container mt-3 hiddenFlash" id='hiddenSuccess'>
+  <div class="hiddenWrapper">
+    <div class="alert alert-success">
+      Recipe Added!
+    </div>
+  </div>
+</div>
+<div class="container mt-3 hiddenFlash" id='hiddenFailure'>
+  <div class="hiddenWrapper">
+    <div class="alert alert-danger">
+      Recipe already in cart!
+    </div>
+  </div>
+</div>

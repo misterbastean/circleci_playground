@@ -1,0 +1,39 @@
+<% include ../partials/header %>
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="thumbnail">
+                <p class="lead text-center">Tech Infusion</p>
+                <div class="caption">
+                    <a href="https://twitter.com/KimberlySterne?lang=en" target='_blank'><img class="profileImg img-responsive" src="https://myedu-images-prod01.s3.amazonaws.com/6607862-4cea7f6ae1e83e67d169b8263a5a26a4-thumb"></a>
+                    <h5 class="text-center">Kimberly Sterne</h5>
+                    <br>
+                    <a href="https://twitter.com/misterbastean?lang=en" target="_blank"><img class="profileImg img-responsive" src="https://d1zqayhc1yz6oo.cloudfront.net/20bea85d8e19cfdc37e8a07c2e20983a.jpg"></a>
+                    <h5 class="text-center">Josh Bastean</h5>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-md-9">
+            <div class="thumbnail">
+                <a href="<%= episode.link %>" target="_blank"><img class="img-responsive" src="<%= episode.image %>"></a>
+                <div class="caption" id="main-caption">
+                    <h4><a href="<%= episode.link %>" target="_blank"><%= episode.name %></a></h4>
+                    <p><%= episode.description %></p>
+                    <p>
+                        <em>Submitted By: <%= episode.author.username %></em>
+                    </p>
+                    <% if(currentUser && episode.author.id.equals(currentUser._id)) {%>
+                        <a class="btn btn-warning btn-xs" href="/episodes/<%=episode._id%>/edit">Edit</a>
+                        <form class="delete-form" action="/episodes/<%= episode._id%>?_method=DElETE" method="POST">
+                            <button class="btn btn-danger btn-xs">Delete</button>
+                        </form>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<% include ../partials/footer %>

@@ -1,0 +1,121 @@
+<% include partials/header %>
+
+</head>
+<body>
+
+<% include partials/navbar %>
+
+<div class="container">
+  <h1>Edit Recipe</h1>
+  <br>
+  <form action="/mealapp/recipes/<%= recipe._id %>?_method=PUT" method="POST">
+    <div class="form-group">
+      <label for="recipeName">Recipe Name</label>
+      <input type="text" class="form-control" id='recipeName' name='recipeName' value="<%= recipe.recipeName %>" autofocus>
+    </div>
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea class='form-control' name="description" id="description" cols="30" rows="4"><%= recipe.description %></textarea>
+    </div>
+    <div class="row">
+      <div class="col-md-3">
+        <label for="protein">Protein</label>
+        <select name="protein" id="protein" class='form-control'>
+          <option value="chicken" <%= recipe.protein == 'chicken' ? 'selected' : '' %>>Chicken</option>
+          <option value="beef" <%= recipe.protein == 'beef' ? 'selected' : '' %>>Beef</option>
+          <option value="pork" <%= recipe.protein == 'pork' ? 'selected' : '' %>>Pork</option>
+          <option value="fish" <%= recipe.protein == 'fish' ? 'selected' : '' %>>Fish</option>
+          <option value="other" <%= recipe.protein == 'other' ? 'selected' : '' %>>Other</option>
+          <option value="none" <%= recipe.protein == 'none' ? 'selected' : '' %>>None</option>
+        </select>
+      </div>
+      <div class="col-md-3">
+        <label for="servingNumber">Serves How Many?</label>
+        <input type="number" class="form-control" id="servingNumber" name="servingNumber" value="<%= recipe.servingNumber %>">
+      </div>
+      <div class="col-md-3">
+        <label for="prepMinutes">Prep Time (in minutes)</label>
+        <input type="number" class="form-control" id="prepMinutes" name="prepMinutes" value="<%= recipe.prepMinutes %>">
+      </div>
+      <div class="col-md-3">
+        <label for="cookMinutes">Cook Time (in minutes)</label>
+        <input type="number" class="form-control" id="cookMinutes" name="cookMinutes" value="<%= recipe.cookMinutes %>">
+      </div>
+    </div>
+
+    <%# Ingredients %>
+    <h3>Ingredients</h3>
+    <div class="btn btn-success btn-block btn-sm" id='addIngredientButton'>Add Ingredient Field</div>
+    <br>
+    <div id="ingredients-container">
+    <% for (let i = 0; i < recipe.ingredients.length; i++) { %>
+      <%
+        let splitIng = recipe.ingredients[i]['ingredientName'].split(" ");
+        let unit = splitIng[splitIng.length - 1];
+        splitIng.pop();
+        let ing = splitIng.join(" ");
+        console.log(ing);
+
+      %>
+      <div class="row">
+        <div class="col-md-7 margin-bottom-small">
+          <input name='ingredients[<%= i %>][ingredientName]' type="text" class='form-control' value="<%= ing %>">
+        </div>
+        <div class="col-md-2">
+          <input name='ingredients[<%= i %>][ingredientQuantity]' type="text" class="form-control" value="<%= recipe.ingredients[i]['ingredientQuantity']%>">
+        </div>
+        <div class="col-md-2">
+          <select name='ingredients[<%= i %>][ingredientUnit]' class="form-control" placeholder='unit'>
+            <optgroup label='Volume'>
+              <option value="teaspoons" <%= unit == 'teaspoons' ? 'selected' : '' %>>Teaspoon(s)</option>
+              <option value="tablespoons" <%= unit == 'tablespoons' ? 'selected' : '' %>>Tablespoon(s)</option>
+              <option value="fluidOunces" <%= unit == 'fluidOunces' ? 'selected' : '' %>>Fluid Ounce(s)</option>
+              <option value="cups" <%= unit == 'cups' ? 'selected' : '' %>>Cup(s)</option>
+              <option value="pints" <%= unit == 'pints' ? 'selected' : '' %>>Pint(s)</option>
+              <option value="quarts" <%= unit == 'quarts' ? 'selected' : '' %>>Quart(s)</option>
+              <option value="gallons" <%= unit == 'gallons' ? 'selected' : '' %>>Gallons(s)</option>
+            </optgroup>
+            <optgroup label='Weight'>
+              <option value="grams" <%= unit == 'grams' ? 'selected' : '' %>>Gram(s)</option>
+              <option value="ounces" <%= unit == 'ounces' ? 'selected' : '' %>>Ounce(s)</option>
+              <option value="pounds" <%= unit == 'pounds' ? 'selected' : '' %>>Pound(s)</option>
+            </optgroup>
+            <optgroup label="Misc.">
+              <option value="each" <%= unit == 'each' ? 'selected' : '' %>>Each</option>
+              <option value="cans" <%= unit == 'cans' ? 'selected' : '' %>>Can(s)</option>
+              <option value="packages" <%= unit == 'packages' ? 'selected' : '' %>>Package(s)</option>
+              <option value="pinch" <%= unit == 'pinch' ? 'selected' : '' %>>Pinch(es)</option>
+              <option value="toTaste" <%= unit == 'toTaste' ? 'selected' : '' %>>To Taste</option>
+            </optgroup>
+          </select>
+        </div>
+        <div class="col-md-1">
+          <div class='btn btn-danger btn-small deleteIngredientButton' id='deleteIngredient1'>X</div>
+        </div>
+      </div>
+    <% } %>
+    </div>
+    <br>
+
+    <%# Directions %>
+    <div class="form-group">
+      <label for="directions">Directions</label>
+      <textarea class='form-control' name="directions" id="directions" cols="30" rows="10" placeholder='e.g. Mix together...'><%= recipe.directions %></textarea>
+    </div>
+    <div class="form-group">
+      <label for="imageUrl">Image URL (optional)</label>
+      <input type="text" class="form-control" name='imageUrl' value="<%= recipe.imageUrl %>">
+    </div>
+    <button class="btn btn-primary btn-block btn-lg">Submit</button>
+  </form>
+</div>
+
+<br>
+<br>
+<script>
+  let ingredientCount = <%- recipe.ingredients.length %>;
+</script>
+<script src='/public/js/mealApp/editRecipe.js'></script>
+
+
+<% include partials/footer %>

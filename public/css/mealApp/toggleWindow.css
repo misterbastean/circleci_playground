@@ -1,0 +1,49 @@
+/*
+Sky: #CAEBF2
+Carbon: #A9A9A9
+Watermelon: #FF383F
+Neutral: #EFEFEF
+
+ */
+
+#toggle-window {
+  position: fixed;
+  top: 12rem;
+  right: 0;
+  width: 28rem;
+  min-height: 30rem;
+  background-color: #CAEBF2;
+  border-radius: 0.6rem 0 0 0.6rem;
+  filter: drop-shadow(0 0 30px #333);
+  z-index: 1;
+  display: none;
+}
+
+.toggle-table {
+  line-height: 0.9;
+}
+
+.toggle-table > thead > tr > th {
+  border-bottom: 1px solid black;
+  border-top: none;
+}
+
+#toggle-window-background {
+  position: fixed;
+  top: 12rem;
+  right: 0;
+  width: 1.2rem;
+  height: 3rem;
+  background-color: #CAEBF2;
+  border-radius: 0.6rem 0 0 0.6rem;
+  filter: drop-shadow(0 0 30px #333);
+  z-index: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  filter: drop-shadow(0 0 30px #333);
+}
+
+.delete-recipe-from-toggle {
+  color: #FF383F
+}

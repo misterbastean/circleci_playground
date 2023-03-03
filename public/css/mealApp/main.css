@@ -1,0 +1,72 @@
+/*
+Sky: #CAEBF2
+Carbon: #A9A9A9
+Watermelon: #FF383F
+Neutral: #EFEFEF
+
+ */
+
+body {
+  padding-top: 45px;
+}
+
+.category-circle {
+  height: 8rem;
+  width: 8rem;
+  opacity: 1;
+  transition: .3s ease;
+  backface-visibility: hidden;
+}
+
+.margin-bottom {
+  margin-bottom: 2rem;
+}
+
+.margin-bottom-small {
+  margin-bottom: 0.4rem;
+}
+
+.category-text {
+  text-align: center;
+  margin-top: 0.4rem;
+  text-decoration: none;
+  color: black;
+}
+
+.delete-form {
+  display: inline;
+}
+
+.preserve-whitespace {
+  white-space: pre-line;
+}
+
+.clickable-row {
+  display: block;
+}
+
+.recipe-tr i {
+  transition: transform 0.1s;
+}
+
+.recipe-tr i:hover {
+    transform: scale(2);
+    filter: drop-shadow(0 0 15px #333);
+}
+
+.no-decoration, .no-decoration:hover, .no-decoration:focus {
+  text-decoration: none;
+}
+
+.hiddenFlash {
+  display: none;
+  position: absolute;
+  top: 45px;
+  left: 50%;
+  z-index: 1;
+}
+
+.hiddenWrapper {
+  position: relative;
+  left: -52%;
+}

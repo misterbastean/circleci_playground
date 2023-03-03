@@ -1,0 +1,44 @@
+<% include ../partials/header %>
+
+    <div class="container">
+        <header class="jumbotron">
+            <div class="container">
+                <div class="col-md-10">
+                    <h1>Welcome to Tech Infusion!</h1>
+                    <p>Your one-stop shop for ed-tech integration</p>
+                    <% if (currentUser) {%>
+                        <p>
+                            <a class="btn-primary btn-lg" href="/episodes/new">Add New Episode</a>
+                        </p>
+                    <% } %>
+                </div>
+                <div class="col-md-2">
+                    <img src="https://preview.ibb.co/eqOeqx/tech_infusion.jpg" class="jumbotron-icon"></img>
+                </div>
+            </div>
+        </header>
+            <div class="row latest-episode">
+                <span><h3>Latest Podcast Episode:</h3></span>
+                <iframe src='https://www.podbean.com/media/player/64fz4-8a8dc2?from=yiiadmin' data-link='https://www.podbean.com/media/player/64fz4-8a8dc2?from=yiiadmin' height='100' width='100%' frameborder='0' scrolling='no' data-name='pb-iframe-player' ></iframe>
+            </div>
+        <hr class="index-hr">
+        <div class="container">
+            <div class="row text-center" style="display:flex; flex-wrap: wrap;">
+                <% episodes.forEach(function(episode) { %>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="thumbnail">
+                            <img src="<%= episode.image %>">
+                            <div class="caption">
+                                <h4><%= episode.name %></h4>
+                            </div>
+                            <p>
+                                <a href="/techInfusion/episodes/<%= episode._id %>" class="btn btn-primary">More Info</a>
+                            </p>
+                        </div>
+                    </div>
+                <% }); %>
+            </div>
+        </div>
+    </div>
+
+<% include ../partials/footer %>

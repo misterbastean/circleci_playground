@@ -1,0 +1,101 @@
+/* need to add media queries to fix on mobile. Looks like crap. */
+
+.header-img {
+  max-height: 15em;
+  width: auto;
+}
+
+.text-strong {
+  font-style: italic;
+  font-weight: bold;
+}
+
+hr {
+  margin-top: 3em;
+  margin-bottom: 3em;
+}
+
+
+
+.middle {
+  transition: .5s ease;
+  opacity: 0;
+}
+
+.card:hover .trans-image {
+  opacity: 0.3;
+}
+
+.card:hover .middle {
+  opacity: 1;
+}
+
+.card-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.card-link:hover {
+  text-decoration: none;
+  color: black;
+}
+
+.text-card-overlay {
+  font-family: "Roboto", "Arial", sans-serif;
+  font-size: 4em;
+  color: #5087B7;
+  /* text-shadow:
+   -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+     1px 1px 0 #000; */
+  padding-top: 0.9em;
+}
+
+.text-card-overlay_camp {
+  padding-top: 0.25em;
+}
+
+.trans-image {
+  opacity: 1;
+  transition: .5s ease;
+  backface-visibility: hidden;
+}
+
+.jumbotron {
+  background-color: #5087B7;
+}
+
+.text-white {
+  text-color: white;
+}
+
+#description {
+  min-height: 25em;
+}
+
+#description p {
+  font-size: 1.2em;
+}
+
+.description-default {
+  font-size: 2.5em;
+  text-align: center;
+}
+
+.about-me {
+  margin-bottom: 6em;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 4em;
+  background-color: #5087B7;
+  color: white;
+}
